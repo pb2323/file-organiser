@@ -1,5 +1,16 @@
 import os
+import sys
+import argparse
 FILE_FORMATS = {'.html5': 'HTML', '.html': 'HTML', '.htm': 'HTML', '.xhtml': 'HTML', '.jpeg': 'IMAGES', '.jpg': 'IMAGES', '.tiff': 'IMAGES', '.gif': 'IMAGES', '.bmp': 'IMAGES', '.png': 'IMAGES', '.bpg': 'IMAGES', 'svg': 'IMAGES', '.heif': 'IMAGES', '.psd': 'IMAGES', '.avi': 'VIDEOS', '.flv': 'VIDEOS', '.wmv': 'VIDEOS', '.mov': 'VIDEOS', '.mp4': 'VIDEOS', '.webm': 'VIDEOS', '.vob': 'VIDEOS', '.mng': 'VIDEOS', '.qt': 'VIDEOS', '.mpg': 'VIDEOS', '.mpeg': 'VIDEOS', '.3gp': 'VIDEOS', '.oxps': 'DOCUMENTS', '.epub': 'DOCUMENTS', '.pages': 'DOCUMENTS', '.docx': 'DOCUMENTS', '.doc': 'DOCUMENTS', '.fdf': 'DOCUMENTS', '.ods': 'DOCUMENTS', '.odt': 'DOCUMENTS', '.pwi': 'DOCUMENTS', '.xsn': 'DOCUMENTS', '.xps': 'DOCUMENTS', '.dotx': 'DOCUMENTS', '.docm': 'DOCUMENTS', '.dox': 'DOCUMENTS', '.rvg': 'DOCUMENTS', '.rtf': 'DOCUMENTS', '.rtfd': 'DOCUMENTS', '.wpd': 'DOCUMENTS', '.xls': 'DOCUMENTS', '.xlsx': 'DOCUMENTS', '.ppt': 'DOCUMENTS', 'pptx': 'DOCUMENTS', '.a': 'ARCHIVES', '.ar': 'ARCHIVES', '.cpio': 'ARCHIVES', '.iso': 'ARCHIVES', '.tar': 'ARCHIVES', '.gz': 'ARCHIVES', '.rz': 'ARCHIVES', '.7z': 'ARCHIVES', '.dmg': 'ARCHIVES', '.rar': 'ARCHIVES', '.xar': 'ARCHIVES', '.zip': 'ARCHIVES', '.aac': 'AUDIO', '.aa': 'AUDIO', '.dvf': 'AUDIO', '.m4a': 'AUDIO', '.m4b': 'AUDIO', '.m4p': 'AUDIO', '.mp3': 'AUDIO', '.msv': 'AUDIO', 'ogg': 'AUDIO', 'oga': 'AUDIO', '.raw': 'AUDIO', '.vox': 'AUDIO', '.wav': 'AUDIO', '.wma': 'AUDIO', '.txt': 'PLAINTEXT', '.in': 'PLAINTEXT', '.out': 'PLAINTEXT', '.pdf': 'PDF', '.py': 'PYTHON', '.xml': 'XML', '.exe': 'EXE', '.sh': 'SHELL'}
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--source', type=str, help='Enter source to organise')
+    parser.add_argument('--destination', type=str, default='/', help='Enter the destination for organised folder')
+    args = parser.parse_args()
+    organize_junk(args.source, args.destination)
+    sys.stdout.write("Shortcut made successfully")
 
 
 def organize_junk(x, z):
@@ -22,4 +33,4 @@ def organize_junk(x, z):
 
 
 if __name__ == "__main__":
-    organize_junk("/home/puneet/Documents/", "/home/puneet/practise1/")
+    main()
